@@ -1,0 +1,147 @@
+body{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+    margin: 0;
+}
+
+h1{
+    margin:0;
+    margin-bottom: 15px;
+    border-left:4px red solid;
+    background-color:#f1f1f1;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:15px;
+    font-size:20px;
+    width: 100%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.confirm{
+    margin:0 auto;
+    background-color:#fbfbfb;
+    border:3px #ebebeb solid;
+    border-radius:10px;
+}
+
+#button1{
+    border:1px solid lightgray;
+    padding:4px 10px;
+    color:white;
+    background-color:#bfbfbf;
+    border-radius:5px;
+    border-bottom:solid 2px gray;
+}
+
+#button2{
+    border:1px solid lightgray;
+    padding:4px 10px;
+    color:white;
+    background-color:darkorange;
+    border-radius:5px;
+    border-bottom:2px solid #E08600;
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+header{
+}
+
+#menu-bar{
+    display: flex;
+    align-items: center;
+    width:auto;
+    height: 50px;
+    background-color: #000000;
+}
+
+#logo{
+    padding-left: 20px;
+}
+
+#menu{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: 0;
+    padding-left: 50px;
+    height: 100%;
+}
+
+#menu li{
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    list-style: none;
+    padding:0;
+    height: 100%;
+}
+
+#menu a{
+    display: flex;
+    align-items: center;
+    width: auto;
+    padding: 0 20px;
+    height: 100%;
+}
+
+#menu a:hover{
+    background-color: #a7a7a7;
+    color: #000000;
+    transition: 0.25s;
+}
+
+
+main{
+    display: flex;
+    justify-content: center;
+    margin:30px 0;
+    height: auto;
+}
+
+#main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: auto;
+    margin: 0;
+}
+
+.item{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+    width: 100%;
+    margin-right: 0;
+}
+
+label{
+    width: 300px;
+}
+
+.space{
+    margin-left: 30px;
+}
+
+footer{
+    width: auto;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    line-height: 50px;
+}
