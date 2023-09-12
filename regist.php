@@ -26,7 +26,7 @@ unset($_POST['flash']);
                 <li><a href="index.php">トップ</a></li>
                 <li><a href="">プロフィール</a></li>
                 <li><a href="">D.I.Blogについて</a></li>
-                <li><a href="account.php">アカウント登録</a></li>
+                <li><a href="regist.php">アカウント登録</a></li>
                 <li><a href="">お問い合わせ</a></li>
                 <li><a href="">その他</a></li>
             </ul>
@@ -38,44 +38,43 @@ unset($_POST['flash']);
     <main>
         <div id="main-container">
 
-        <h1>お問い合わせフォーム（全て入力必須）</h1>
-        <form method="post"action="confirm.php"class="confirm">
+        <h1>アカウント登録</h1>
+        <form method="post"action="regist_confirm.php" class="confirm">
             <div class="item">
-                <label for="">名前（姓）</label><br>
-                <input type="text" id="text" name="family_name_kanji" value="<?php if (!empty($_POST['family_name_kanji'])) {echo $_POST['family_name_kanji'];}?>" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" placeholder="田中" maxlength="10">
-            </div>
-            <?php if (!empty($_POST['family_name_kanji_error'])){echo $_POST['family_name_kanji_error'];}?>
-            <div class="item">
-                <label for="">名前（名）</label><br>
-                <input type="text" id="text" name="last_name_kanji" value="<?php if (!empty($_POST['last_name_kanji'])) {echo $_POST['last_name_kanji'];}?>" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" placeholder="太郎" maxlength="10">
+                <label for="">名前（姓）</label>
+                <input type="text" id="text" name="family_name" value="<?php if (!empty($_POST['family_name'])) {echo $_POST['family_name'];}?>" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" placeholder="田中" maxlength="10">
             </div>
             <div class="item">
-                <label for="">カナ（姓）</label><br>
+                <label for="">名前（名）</label>
+                <input type="text" id="text" name="last_name" value="<?php if (!empty($_POST['last_name'])) {echo $_POST['last_name'];}?>" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" placeholder="太郎" maxlength="10">
+            </div>
+            <div class="item">
+                <label for="">カナ（姓）</label>
                 <input type="text" id="text" name="family_name_kana" value="<?php if (!empty($_POST['family_name_kana'])) {echo $_POST['family_name_kana'];}?>" pattern="[\u30A1-\u30FA\u30FC]+" placeholder="タナカ" maxlength="10">
             </div>
             <div class="item">
-                <label for="">カナ（名）</label><br>
-                <input type="text" id="text" name="first_name_kana" value="<?php if (!empty($_POST['first_name_kana'])) {echo $_POST['first_name_kana'];}?>" pattern="[\u30A1-\u30FA\u30FC]+" placeholder="タロウ" maxlength="10">
+                <label for="">カナ（名）</label>
+                <input type="text" id="text" name="last_name_kana" value="<?php if (!empty($_POST['last_name_kana'])) {echo $_POST['last_name_kana'];}?>" pattern="[\u30A1-\u30FA\u30FC]+" placeholder="タロウ" maxlength="10">
             </div>
             <div class="item">
-                <label for="">メールアドレス</label><br>
+                <label for="">メールアドレス</label>
                 <input type="email" id="text" name="mail" value="<?php if (!empty($_POST['mail'])) {echo $_POST['mail'];}?>" placeholder="test@gmail.com" maxlength="100">
             </div>
             <div class="item">
-                <label for="">パスワード</label><br>
+                <label for="">パスワード</label>
                 <input type="password" id="text" name="password" value="<?php if (!empty($_POST['password'])) {echo $_POST['password'];}?>" placeholder="pass0123" maxlength="10">
             </div>
             <div class="item">
-                <label for="">性別</label><br>
-                <input type="radio" id="text" name="gender" value="0" checked>男
-                <input type="radio" id="text" name="gender" value="1" class="space">女
+                <label for="">性別</label>
+                <input type="radio" id="text" name="gender" value="0" <?php if(empty($_POST['gender'])||$_POST['gender']=="0") echo "checked"; ?>>男
+                <input type="radio" id="text" name="gender" value="1" class="space"<?php if(!empty($_POST['gender'])&&$_POST['gender']=="1") echo "checked"; ?>>女
             </div>
             <div class="item">
-                <label for="">郵便番号</label><br>
+                <label for="">郵便番号</label>
                 <input type="text" id="text" name="postal_code" value="<?php if (!empty($_POST['postal_code'])) {echo $_POST['postal_code'];}?>" placeholder="1234567" maxlength="7">
             </div>
             <div class="item">
-                <label for="">住所（都道府県）</label><br>
+                <label for="">住所（都道府県）</label>
                 <select name="prefecture" id="dropdown">
                 <?php if (!empty($_POST['prefecture'])) {echo '<option value="'.$_POST['prefecture']. '" hidden selected>'.$_POST['prefecture'].'</option>';}?>
                 <option value=""></option>
@@ -129,19 +128,19 @@ unset($_POST['flash']);
                 </select>
             </div>
             <div class="item">
-                <label for="">住所（市区町村）</label><br>
+                <label for="">住所（市区町村）</label>
                 <input type="text" id="text" name="address_1" value="<?php if (!empty($_POST['address_1'])) {echo $_POST['address_1'];}?>" pattern="[-\u4E00-\u9FFF\u3040-\u309Fー\uFF66-\uFF9F\u30A1-\u30F60-9_\s]" placeholder="旭川市" maxlength="10">
             </div>
             <div class="item">
-                <label for="">住所（番地）</label><br>
+                <label for="">住所（番地）</label>
                 <input type="text" id="text" name="address_2" value="<?php if (!empty($_POST['address_2'])) {echo $_POST['address_2'];}?>" pattern="[^-\u4E00-\u9FFF\u3040-\u309Fー\uFF66-\uFF9F\u30A1-\u30F60-9_\s]" placeholder="あいうえお１－２－３" maxlength="100">
             </div>
             <div class="item">
-                <label for="">アカウント権限</label><br>
+                <label for="">アカウント権限</label>
                 <select name="authority" id="dropdown">
                 <?php if (!empty($_POST['authority'])) {echo '<option value="'.$_POST['authority']. '" hidden selected>'.$_POST['authority'].'</option>';}?>
-                <option value="一般">一般</option>
-                <option value="管理者">管理者</option>
+                <option value="0"<?php if(empty($_POST['authority'])||$_POST['authority']=="0") echo "selected"?>>一般</option>
+                <option value="1" <?php if(!empty($_POST['authority'])&&$_POST['authority']=="1") echo "selected"?>>管理者</option>
                 </select>
             </div>
             <div>

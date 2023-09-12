@@ -1,64 +1,131 @@
-<?php
-
-if(empty($_POST['family_name_kanji'])) {
-    $_POST['flash']['family_name_kanji_error'] = "名前（姓）は必須項目です";
-}
-
-if(empty($_POST['first_name_kanji'])) {
-    $_POST['flash']['first_name_kanji_error'] = "名前（名）は必須項目です";
-}
-
-if(empty($_POST['family_name_kanji']) || empty($_POST['first_name_kanji'])) {
-    header('Location: regist.php');
-}
-
-
-/*<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 
     <head>
         <meta charset="utf-8">
         <title>お問合わせ内容確認</title>
-        <link rel="stylesheet" type="text/css" href="style2.css">
+        <link rel="stylesheet" type="text/css" href="regist.css">
     </head>
 
     <body>
 
-    <h1>お問い合わせ内容確認</h1>
-    <div class="confirm">
-        <p>お問い合わせ内容はこちらで宜しいでしょうか？<br>
-        よろしければ「送信する」ボタンを押して下さい。</p>
-        <p>名前<br>
-        <?php echo $_POST['name']; ?>
-        </p>
-        <p>メールアドレス<br>
-        <?php echo $_POST['mail']; ?>
-        </p>
-        <p>年齢<br>
-        <?php echo $_POST['age']; ?>
-        </p>
-        <p>コメント<br>
-        <?php echo $_POST['comments']; ?>
-        </p>
+    <header>
 
-        <form action="index.php" method="post">
-            <input type="submit" id="button1" value="戻って修正する">
-            <input type="hidden" value="<?php echo $_POST['name']; ?>" name="name">
-            <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">
-            <input type="hidden" value="<?php echo $_POST['age']; ?>" name="age">
-            <input type="hidden" value="<?php echo $_POST['comments']; ?>" name="comments">
-        </form>
+        <div id="logo"><img src="diblog_logo.jpg" alt=""></div>
 
-        <form action="insert.php" method="post">
-            <input type="submit" id="button2" value="登録する">
-            <input type="hidden" value="<?php echo $_POST['name']; ?>" name="name">
-            <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">
-            <input type="hidden" value="<?php echo $_POST['age']; ?>" name="age">
-            <input type="hidden" value="<?php echo $_POST['comments']; ?>" name="comments">
-        </form>
-    </div>
+        <div id="menu-bar">
+
+            <ul id="menu">
+                <li><a href="index.php">トップ</a></li>
+                <li><a href="">プロフィール</a></li>
+                <li><a href="">D.I.Blogについて</a></li>
+                <li><a href="regist.php">アカウント登録</a></li>
+                <li><a href="">お問い合わせ</a></li>
+                <li><a href="">その他</a></li>
+            </ul>
+
+        </div>
+
+    </header>
+
+    <main>
+        <div id="main-container">
+
+        <h1>登録内容確認</h1>
+        <div class="confirm">
+            <div class="item">
+                <label>名前（姓）</label>
+                <?php echo $_POST['family_name']; ?>
+            </div>
+            <div class="item">
+                <label>名前（名）</label>
+                <?php echo $_POST['last_name']; ?>
+            </div>
+            <div class="item">
+                <label>カナ（姓）</label>
+                <?php echo $_POST['family_name_kana']; ?>
+            </div>
+            <div class="item">
+                <label>カナ（名）</label>
+                <?php echo $_POST['last_name_kana']; ?>
+            </div>
+            <div class="item">
+                <label>メールアドレス</label>
+                <?php echo $_POST['mail']; ?>
+            </div>
+            <div class="item">
+                <label>パスワード</label>
+                <?php echo str_repeat('●', strlen($_POST['password'])); ?>
+            </div>
+            <div class="item">
+                <label>性別</label>
+                <?php if($_POST['gender']=="0") echo "男"; ?>
+                <?php if($_POST['gender']=="1") echo "女"; ?>
+            </div>
+            <div class="item">
+                <label>郵便番号</label>
+                <?php echo $_POST['postal_code']; ?>
+            </div>
+            <div class="item">
+                <label>住所（都道府県）</label>
+                <?php echo $_POST['prefecture']; ?>
+            </div>
+            <div class="item">
+                <label>住所（市区町村）</label>
+                <?php echo $_POST['address_1']; ?>
+            </div>
+            <div class="item">
+                <label>住所（番地）</label>
+                <?php echo $_POST['address_2']; ?>
+            </div>
+            <div class="item">
+                <label>アカウント権限</label>
+                <?php if($_POST['authority']=="0") echo "一般"; ?>
+                <?php if($_POST['authority']=="1") echo "管理者"; ?>
+            </div>
+
+            <div id=button-box>
+                <form action="regist.php" method="post" class="post_button">
+                    <input type="submit" id="button1" value="戻って修正する">
+                    <input type="hidden" value="<?php echo $_POST['family_name']; ?>" name="family_name">
+                    <input type="hidden" value="<?php echo $_POST['last_name']; ?>" name="last_name">
+                    <input type="hidden" value="<?php echo $_POST['family_name_kana']; ?>" name="family_name_kana">
+                    <input type="hidden" value="<?php echo $_POST['last_name_kana']; ?>" name="last_name_kana">
+                    <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">
+                    <input type="hidden" value="<?php echo $_POST['password']; ?>" name="password">
+                    <input type="hidden" value="<?php echo $_POST['gender']; ?>" name="gender">
+                    <input type="hidden" value="<?php echo $_POST['postal_code']; ?>" name="postal_code">
+                    <input type="hidden" value="<?php echo $_POST['prefecture']; ?>" name="prefecture">
+                    <input type="hidden" value="<?php echo $_POST['address_1']; ?>" name="address_1">
+                    <input type="hidden" value="<?php echo $_POST['address_2']; ?>" name="address_2">
+                    <input type="hidden" value="<?php echo $_POST['authority']; ?>" name="authority">
+                </form>
+
+                <form action="regist_complete.php" method="post" class="post_button">
+                    <input type="submit" id="button2" value="登録する">
+                    <input type="hidden" value="<?php echo $_POST['family_name']; ?>" name="family_name">
+                    <input type="hidden" value="<?php echo $_POST['last_name']; ?>" name="last_name">
+                    <input type="hidden" value="<?php echo $_POST['family_name_kana']; ?>" name="family_name_kana">
+                    <input type="hidden" value="<?php echo $_POST['last_name_kana']; ?>" name="last_name_kana">
+                    <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">
+                    <?php $hash = password_hash($_POST['password'],PASSWORD_DEFAULT); ?>
+                    <input type="hidden" value="<?php echo $hash; ?>" name="password">
+                    <input type="hidden" value="<?php echo $_POST['gender']; ?>" name="gender">
+                    <input type="hidden" value="<?php echo $_POST['postal_code']; ?>" name="postal_code">
+                    <input type="hidden" value="<?php echo $_POST['prefecture']; ?>" name="prefecture">
+                    <input type="hidden" value="<?php echo $_POST['address_1']; ?>" name="address_1">
+                    <input type="hidden" value="<?php echo $_POST['address_2']; ?>" name="address_2">
+                    <input type="hidden" value="<?php echo $_POST['authority']; ?>" name="authority">
+                </form>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="copyright">Copyright&copy; D.I.works | D.I.Blog is the one which provides A to Z about programming</div>
+    </footer>
 
     </body>
-</html>*/
+</html>
 
-?>
