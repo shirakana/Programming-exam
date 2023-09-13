@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>お問合わせ内容確認</title>
+        <title>お問い合わせ内容確認</title>
         <link rel="stylesheet" type="text/css" href="regist.css">
     </head>
 
@@ -86,7 +86,7 @@
 
             <div id=button-box>
                 <form action="regist.php" method="post" class="post_button">
-                    <input type="submit" id="button1" value="戻って修正する">
+                    <input type="submit" id="button1" value="前に戻る">
                     <input type="hidden" value="<?php echo $_POST['family_name']; ?>" name="family_name">
                     <input type="hidden" value="<?php echo $_POST['last_name']; ?>" name="last_name">
                     <input type="hidden" value="<?php echo $_POST['family_name_kana']; ?>" name="family_name_kana">

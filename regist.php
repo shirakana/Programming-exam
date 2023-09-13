@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>D.I.Blog</title>
+        <title>アカウント登録</title>
         <link rel="stylesheet" type="text/css" href="regist.css">
         <script type="text/javascript">
             function check(){
