@@ -262,3 +262,9 @@ p#error{
     font-size: 20px;
     margin: 200px 0;
 }
+
+span{
+    color: #df3434;
+    font-size: 14px;
+    margin-right: auto;
+}
