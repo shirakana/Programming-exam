@@ -5,6 +5,16 @@
         <meta charset="UTF-8">
         <title>D.I.Blog</title>
         <link rel="stylesheet" type="text/css" href="regist.css">
+        <script type="text/javascript">
+            function check(){
+                if(document.confirm.mail.value == ""){
+                        alert("名前（姓）を入力してください");
+                        return false;
+                }else{
+                    return true;
+                }
+            }
+        </script>
     </head>
 
     <body>
@@ -32,7 +42,7 @@
         <div id="main-container">
 
         <h1>アカウント登録</h1>
-        <form method="post"action="regist_confirm.php" class="confirm">
+        <form method="post"action="regist_confirm.php" class="confirm" name="confirm">
             <div class="item">
                 <label for="">名前（姓）</label>
                 <input type="text" class="text" name="family_name" value="<?php if (!empty($_POST['family_name'])) {echo $_POST['family_name'];}?>" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" placeholder="田中" maxlength="10" pattern="[^\x20-\x7E]*">
@@ -139,7 +149,7 @@
                 </select>
             </div>
             <div>
-                <input type="submit" class="submit" value="確認する">
+                <input type="submit" class="submit" value="確認する" onclick="return check()" id="check">
             </div>
         </form>
 
