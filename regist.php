@@ -1,10 +1,3 @@
-<?php
-
-$flash = isset($_POST['flash']) ? $_POST['flash'] : [];
-unset($_POST['flash']);
-
-?>
-
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -42,36 +35,38 @@ unset($_POST['flash']);
         <form method="post"action="regist_confirm.php" class="confirm">
             <div class="item">
                 <label for="">名前（姓）</label>
-                <input type="text" id="text" name="family_name" value="<?php if (!empty($_POST['family_name'])) {echo $_POST['family_name'];}?>" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" placeholder="田中" maxlength="10">
+                <input type="text" class="text" name="family_name" value="<?php if (!empty($_POST['family_name'])) {echo $_POST['family_name'];}?>" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" placeholder="田中" maxlength="10" pattern="[^\x20-\x7E]*">
             </div>
             <div class="item">
                 <label for="">名前（名）</label>
-                <input type="text" id="text" name="last_name" value="<?php if (!empty($_POST['last_name'])) {echo $_POST['last_name'];}?>" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" placeholder="太郎" maxlength="10">
+                <input type="text" class="text" name="last_name" value="<?php if (!empty($_POST['last_name'])) {echo $_POST['last_name'];}?>" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" placeholder="太郎" maxlength="10" pattern="[^\x20-\x7E]*">
             </div>
             <div class="item">
                 <label for="">カナ（姓）</label>
-                <input type="text" id="text" name="family_name_kana" value="<?php if (!empty($_POST['family_name_kana'])) {echo $_POST['family_name_kana'];}?>" pattern="[\u30A1-\u30FA\u30FC]+" placeholder="タナカ" maxlength="10">
+                <input type="text" class="text" name="family_name_kana" value="<?php if (!empty($_POST['family_name_kana'])) {echo $_POST['family_name_kana'];}?>" pattern="[\u30A1-\u30FA\u30FC]+" placeholder="タナカ" maxlength="10" pattern="[\u30A1-\u30F6]*">
             </div>
             <div class="item">
                 <label for="">カナ（名）</label>
-                <input type="text" id="text" name="last_name_kana" value="<?php if (!empty($_POST['last_name_kana'])) {echo $_POST['last_name_kana'];}?>" pattern="[\u30A1-\u30FA\u30FC]+" placeholder="タロウ" maxlength="10">
+                <input type="text" class="text" name="last_name_kana" value="<?php if (!empty($_POST['last_name_kana'])) {echo $_POST['last_name_kana'];}?>" pattern="[\u30A1-\u30FA\u30FC]+" placeholder="タロウ" maxlength="10" pattern="[\u30A1-\u30F6]*">
             </div>
             <div class="item">
                 <label for="">メールアドレス</label>
-                <input type="email" id="text" name="mail" value="<?php if (!empty($_POST['mail'])) {echo $_POST['mail'];}?>" placeholder="test@gmail.com" maxlength="100">
+                <input type="email" class="text" name="mail" value="<?php if (!empty($_POST['mail'])) {echo $_POST['mail'];}?>" placeholder="test@gmail.com" maxlength="100" pattern="[-a-z0-9]+@[-a-z0-9]+\.[a-z]{2,3}$">
             </div>
             <div class="item">
                 <label for="">パスワード</label>
-                <input type="password" id="text" name="password" value="<?php if (!empty($_POST['password'])) {echo $_POST['password'];}?>" placeholder="pass0123" maxlength="10">
+                <input type="password" class="text" name="password" value="<?php if (!empty($_POST['password'])) {echo $_POST['password'];}?>" placeholder="pass0123" maxlength="10">
             </div>
             <div class="item">
                 <label for="">性別</label>
-                <input type="radio" id="text" name="gender" value="0" <?php if(empty($_POST['gender'])||$_POST['gender']=="0") echo "checked"; ?>>男
-                <input type="radio" id="text" name="gender" value="1" class="space"<?php if(!empty($_POST['gender'])&&$_POST['gender']=="1") echo "checked"; ?>>女
+                <div class="radio-box">
+                <input type="radio" id="male-radio" name="gender" value="0" <?php if(empty($_POST['gender'])||$_POST['gender']=="0") echo "checked"; ?>><label class="radio" for="male-radio">男</label>
+                <input type="radio" id="female-radio" name="gender" value="1" class="space"<?php if(!empty($_POST['gender'])&&$_POST['gender']=="1") echo "checked"; ?>><label class="radio "for="female-radio">女</label>
+                </div>
             </div>
             <div class="item">
                 <label for="">郵便番号</label>
-                <input type="text" id="text" name="postal_code" value="<?php if (!empty($_POST['postal_code'])) {echo $_POST['postal_code'];}?>" placeholder="1234567" maxlength="7">
+                <input type="text" class="text" name="postal_code" value="<?php if (!empty($_POST['postal_code'])) {echo $_POST['postal_code'];}?>" placeholder="1234567" maxlength="7">
             </div>
             <div class="item">
                 <label for="">住所（都道府県）</label>
@@ -129,11 +124,11 @@ unset($_POST['flash']);
             </div>
             <div class="item">
                 <label for="">住所（市区町村）</label>
-                <input type="text" id="text" name="address_1" value="<?php if (!empty($_POST['address_1'])) {echo $_POST['address_1'];}?>" pattern="[-\u4E00-\u9FFF\u3040-\u309Fー\uFF66-\uFF9F\u30A1-\u30F60-9_\s]" placeholder="旭川市" maxlength="10">
+                <input type="text" class="text" name="address_1" value="<?php if (!empty($_POST['address_1'])) {echo $_POST['address_1'];}?>" placeholder="旭川市" maxlength="10" pattern="[^a-zA-Z]+">
             </div>
             <div class="item">
                 <label for="">住所（番地）</label>
-                <input type="text" id="text" name="address_2" value="<?php if (!empty($_POST['address_2'])) {echo $_POST['address_2'];}?>" pattern="[^-\u4E00-\u9FFF\u3040-\u309Fー\uFF66-\uFF9F\u30A1-\u30F60-9_\s]" placeholder="あいうえお１－２－３" maxlength="100">
+                <input type="text" class="text" name="address_2" value="<?php if (!empty($_POST['address_2'])) {echo $_POST['address_2'];}?>" placeholder="あいうえお１－２－３" maxlength="100" pattern="[^a-zA-Z]+">
             </div>
             <div class="item">
                 <label for="">アカウント権限</label>

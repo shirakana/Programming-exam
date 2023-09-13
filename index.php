@@ -41,7 +41,7 @@
     </header>
 
     <main>
-        <div id="main-container">
+        <div id="main-container-row">
 
             <div id="main-left">
                 <div id="article">

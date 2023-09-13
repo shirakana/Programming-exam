@@ -18,6 +18,10 @@ h1{
     width: 100%;
 }
 
+h3{
+    border-bottom: solid 4px #c4c4c4;
+}
+
 .confirm{
     display: flex;
     flex-direction: column;
@@ -118,6 +122,14 @@ main{
     margin: 0;
 }
 
+#main-container-row{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: auto;
+    margin: 0;
+}
+
 .item{
     display: flex;
     flex-direction: row;
@@ -127,8 +139,17 @@ main{
     margin-right: 0;
 }
 
+.text{
+    padding: 0;
+    width: 50%;
+}
+
 label{
-    width: 300px;
+    width: 50%;
+}
+
+label.radio{
+    width: 50%;
 }
 
 .space{
@@ -146,10 +167,91 @@ label{
     margin: 0 30px;
 }
 
+#complete{
+    font-weight: bold;
+    font-size: 24px;
+    margin: 200px 0;
+}
+
 footer{
     width: auto;
     background-color: #000000;
     color: #ffffff;
     text-align: center;
     line-height: 50px;
+}
+
+#main-left{
+    width: 70%;
+    height: 100%;
+    border: solid 2px #6d97e4;
+}
+
+#article{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+#article-day{
+    margin: 10px 0;
+}
+
+#article-main{
+    margin: 10px 0;
+}
+
+.bxslider{
+    margin:0px;
+}
+
+.bx-wrapper {
+    position: relative;
+}
+
+.bx-wrapper img {
+    width:100%;
+}
+
+#main-right{
+    width: 30%;
+    height: 100%;
+    border: solid 2px #e4756d;
+}
+
+#article-img{
+    height: 40%;
+}
+
+#gallary{
+    height: 30%;
+    background-color: #c5c5c5;
+}
+
+#img-total{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.img-box{
+    width: 21%;
+    margin: 2%;
+}
+#img-total img{
+    width: 100%;
+}
+
+#side-menu{
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.side-list{
+    padding-left: 20px;
+    margin: 0;
+    list-style: none;
 }
