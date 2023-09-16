@@ -22,22 +22,7 @@
     <body>
 
     <header>
-
-        <div id="logo"><img src="diblog_logo.jpg" alt=""></div>
-
-        <div id="menu-bar">
-
-            <ul id="menu">
-                <li><a href="index.php">トップ</a></li>
-                <li><a href="">プロフィール</a></li>
-                <li><a href="">D.I.Blogについて</a></li>
-                <li><a href="regist.php">アカウント登録</a></li>
-                <li><a href="">お問い合わせ</a></li>
-                <li><a href="">その他</a></li>
-            </ul>
-
-        </div>
-
+        <?php include "header.php"; ?>
     </header>
 
     <main>
@@ -124,7 +109,7 @@
     </main>
 
     <footer>
-        <div id="copyright">Copyright&copy; D.I.works | D.I.Blog is the one which provides A to Z about programming</div>
+        <?php include "footer.php"; ?>
     </footer>
 
     </body>
