@@ -42,16 +42,16 @@ h3{
     color:#ffffff;
     background-color:#5a9ddb;
     border-radius:5px;
-    border-bottom:solid 2px gray;
+    border-bottom:solid 2px #808080;
 }
 
 #button2{
     border:1px solid lightgray;
     padding:4px 10px;
-    color:white;
-    background-color:darkorange;
+    color:#ffffff;
+    background-color:#f3903f;
     border-radius:5px;
-    border-bottom:2px solid #E08600;
+    border-bottom:2px solid #808080;
 }
 
 a{
@@ -162,6 +162,7 @@ label.radio{
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    width: 100%;
 }
 
 .post_button{
@@ -169,8 +170,7 @@ label.radio{
 }
 
 #complete{
-    font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
     margin: 200px 0;
 }
 
@@ -263,8 +263,37 @@ p#error{
     margin: 200px 0;
 }
 
+p#delete_announce{
+    font-size: 20px;
+    margin: 200px 0;
+}
+
 span{
     color: #df3434;
     font-size: 14px;
     margin-right: auto;
+}
+
+#account_table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+#account_table th{
+    padding: 10px;
+    background: #e9faf9;
+    border: solid 1px #778ca3;
+}
+#account_table td {
+    padding: 10px;
+    border: solid 1px #778ca3;
+}
+
+#account_table .right{
+    text-align: right;
+}
+
+.token{
+    display: none;
 }

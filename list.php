@@ -22,7 +22,7 @@
                 mb_internal_encoding("utf8");
                 $dbh = new PDO("mysql:dbname=account;host=localhost;","root","");
             }catch(PDOException $e){
-                header("Location:error.php");
+                header("Location:error.php?reason%5b%5d=default");
                 exit();
             }
 
@@ -58,8 +58,8 @@
                 echo "\t\t<td>".date('Y/m/d', $registered_time)."</td>\n";
                 $update_time = strtotime($result['update_time']);
                 echo "\t\t<td>".date('Y/m/d', $update_time)."</td>\n";
-                echo "\t\t<td><input type=\"button\" value=\"更新\" onclick=\"location.href='update.php'\" id=\"button1\"></input></td>\n";
-                echo "\t\t<td><input type=\"button\" value=\"削除\" onclick=\"location.href='delete.php'\" id=\"button2\"></input></td>\n";
+                echo "\t\t<td><input type=\"button\" value=\"更新\" onclick=\"location.href='update.php?number%5b%5d={$result['id']}'\" id=\"button1\"></input></td>\n";
+                echo "\t\t<td><input type=\"button\" value=\"削除\" onclick=\"location.href='delete.php?number%5b%5d={$result['id']}'\" id=\"button2\"></input></td>\n";
                 echo "\t</tr>\n";
             }
             echo "</table>\n";
