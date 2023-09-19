@@ -140,6 +140,19 @@ main{
     margin-right: 0;
 }
 
+.second-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+    width: 100%;
+    margin-right: 0;
+}
+
+#password_update{
+    display: none;
+}
+
 .text{
     padding: 0;
     width: 50%;

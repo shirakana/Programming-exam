@@ -40,10 +40,18 @@
                 <label>メールアドレス</label>
                 <?php echo $_POST['mail']; ?>
             </div>
-            <div class="item">
-                <label>パスワード</label>
-                <?php echo str_repeat('●', strlen($_POST['password'])); ?>
-            </div>
+            <?php if($_POST['password_radio'] == 1){
+                echo "<div class=\"item\">";
+                echo "<label>パスワード</label>";
+                echo str_repeat('●', strlen($_POST['password']));
+                echo "</div>";
+            }else{
+                echo "<div class=\"item\">";
+                echo "<label>パスワード</label>";
+                echo "変更しない";
+                echo "</div>";
+            }
+            ?>
             <div class="item">
                 <label>性別</label>
                 <?php if($_POST['gender']=="0") echo "男"; ?>
@@ -87,6 +95,7 @@
                     <input type="hidden" value="<?php echo $_POST['address_2']; ?>" name="address_2">
                     <input type="hidden" value="<?php echo $_POST['authority']; ?>" name="authority">
                     <input type="hidden" value="<?php echo $_POST['number']; ?>" name="number">
+                    <input type="hidden" value="<?php echo $_POST['password_radio']; ?>" name="password_radio">
                 </form>
 
                 <form action="update_complete.php" method="post" class="post_button">
@@ -104,6 +113,7 @@
                     <input type="hidden" value="<?php echo $_POST['address_2']; ?>" name="address_2">
                     <input type="hidden" value="<?php echo $_POST['authority']; ?>" name="authority">
                     <input type="hidden" value="<?php echo $_POST['number']; ?>" name="number">
+                    <input type="hidden" value="<?php echo $_POST['password_radio']; ?>" name="password_radio">
                 </form>
             </div>
         </div>

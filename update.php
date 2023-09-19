@@ -67,8 +67,25 @@
             </div>
             <span id="password_error">パスワードを入力してください</span>
             <div class="item">
-                <label for="">パスワード</label>
-                <input type="password" class="text" name="password" value="<?php echo $value['password'];?>" placeholder="pass0123" maxlength="10">
+                    <label for="">パスワード</label>
+                    <div class="radio-box">
+                        <input type="radio" id="keep-radio" name="password_radio" value="0" onclick="buttonClick()" checked><label class="radio" for="keep-radio">変更しない</label>
+                        <input type="radio" id="update-radio" name="password_radio" value="1" onclick="buttonClick()" class="space"><label class="radio "for="update-radio">変更する</label>
+                    </div>
+            </div>
+            <script>
+                function buttonClick(){
+                    let btnHide = document.getElementById("keep-radio");
+                    let subForm = document.getElementById("password_update");
+                    if (btnHide.checked) {
+                        password_update.style.display = "none";
+                    } else {
+                        password_update.style.display = "flex";
+                    }
+                }
+            </script>
+            <div class="second-item" id="password_update">
+            <input type="password" class="text" name="password" value="" placeholder="pass0123" maxlength="10" class="right-display">
             </div>
             <div class="item">
                 <label for="">性別</label>
@@ -214,13 +231,22 @@
                     address_2_error.style.display="flex";
                 }
 
-                if(family_name.value === "" || last_name.value === ""|| family_name_kana.value === ""|| last_name_kana.value === ""|| mail.value === ""|| password.value === ""|| gender.value === ""|| postal_code.value === ""|| prefecture.value === ""|| address_1.value === ""|| address_2.value === ""|| authority.value === ""){
-                    alert( "未入力の項目があります");
-                    return false;
+                if(document.confirm.password_radio[0].checked){
+                    if(family_name.value === "" || last_name.value === ""|| family_name_kana.value === ""|| last_name_kana.value === ""|| mail.value === ""||  gender.value === ""|| postal_code.value === ""|| prefecture.value === ""|| address_1.value === ""|| address_2.value === ""|| authority.value === ""){
+                        alert( "未入力の項目があります");
+                        return false;
+                    }else{
+                        return true;
+                    }
                 }else{
-                    return true;
+                    if(family_name.value === "" || last_name.value === ""|| family_name_kana.value === ""|| last_name_kana.value === ""|| mail.value === ""|| password.value === ""|| gender.value === ""|| postal_code.value === ""|| prefecture.value === ""|| address_1.value === ""|| address_2.value === ""|| authority.value === ""){
+                        alert( "未入力の項目があります");
+                        return false;
+                    }else{
+                        return true;
+                    }
                 }
-            }
+                }
         </script>
         </div>
     </main>

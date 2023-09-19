@@ -57,10 +57,6 @@
                 <?php echo $value['mail']; ?>
             </div>
             <div class="item">
-                <label>パスワード</label>
-                <?php echo str_repeat('●', strlen($value['password'])); ?>
-            </div>
-            <div class="item">
                 <label>性別</label>
                 <?php if($value['gender']=="0") echo "男"; ?>
                 <?php if($value['gender']=="1") echo "女"; ?>
