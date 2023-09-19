@@ -1,3 +1,5 @@
+<?php include "empty_access.php"; ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -23,7 +25,11 @@
                     header("Location:error.php?reason%5b%5d=update");
                     exit();
                 }
-                $number = $_GET['number'];
+                if(empty($_POST['number'])){
+                    $number = $_GET['number'];
+                }else{
+                    $number = $_POST['number'];
+                }
                 $sql = 'SELECT * FROM account_list WHERE id = '.$number[0].'';
                 $result = $db->query($sql);
                 echo "<div class=\"token\">";
