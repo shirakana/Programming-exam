@@ -36,6 +36,10 @@
                         echo "<p id=\"error\">不正な画面遷移です。</p>";
                     break;
 
+                    case 'login':
+                        echo "<p id=\"error\">エラーが発生したためログイン情報を取得できません。</p>";
+                    break;
+
                     default:
                         echo "<p id=\"error\">接続エラーが発生しました。</p>";
                     break;

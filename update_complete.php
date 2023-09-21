@@ -8,10 +8,10 @@ try{
     $hash = password_hash($_POST['password'],PASSWORD_DEFAULT);
     if($_POST['password_radio'] == 1){
         $sql = "UPDATE account_list SET family_name = '".$_POST['family_name']."', last_name = '".$_POST['last_name']."', family_name_kana = '".$_POST['family_name_kana']."', last_name_kana = '".$_POST['last_name_kana']."', mail = '".$_POST['mail']."', password = '".$hash."',
-        gender = '".$_POST['gender']."', postal_code = '".$_POST['postal_code']."', prefecture = '".$_POST['prefecture']."', address_1 = '".$_POST['address_1']."', address_2 = '".$_POST['address_2']."', authority = '".$_POST['authority']."', delete_flag = 0 WHERE id = ".$_POST['number']."";
+        gender = '".$_POST['gender']."', postal_code = '".$_POST['postal_code']."', prefecture = '".$_POST['prefecture']."', address_1 = '".$_POST['address_1']."', address_2 = '".$_POST['address_2']."', authority = '".$_POST['authority']."' WHERE id = ".$_POST['number']."";
     }else{
         $sql = "UPDATE account_list SET family_name = '".$_POST['family_name']."', last_name = '".$_POST['last_name']."', family_name_kana = '".$_POST['family_name_kana']."', last_name_kana = '".$_POST['last_name_kana']."', mail = '".$_POST['mail']."',
-        gender = '".$_POST['gender']."', postal_code = '".$_POST['postal_code']."', prefecture = '".$_POST['prefecture']."', address_1 = '".$_POST['address_1']."', address_2 = '".$_POST['address_2']."', authority = '".$_POST['authority']."', delete_flag = 0 WHERE id = ".$_POST['number']."";
+        gender = '".$_POST['gender']."', postal_code = '".$_POST['postal_code']."', prefecture = '".$_POST['prefecture']."', address_1 = '".$_POST['address_1']."', address_2 = '".$_POST['address_2']."', authority = '".$_POST['authority']."' WHERE id = ".$_POST['number']."";
     }
     $sth = $dbh->query($sql);
 }catch(PDOException $e){

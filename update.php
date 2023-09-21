@@ -77,9 +77,10 @@
                 function buttonClick(){
                     let btnHide = document.getElementById("keep-radio");
                     let subForm = document.getElementById("password_update");
-                    if (btnHide.checked) {
+                    if(btnHide.checked){
                         password_update.style.display = "none";
-                    } else {
+                        password_error.style.display = "none";
+                    }else{
                         password_update.style.display = "flex";
                     }
                 }
@@ -203,6 +204,7 @@
             const authority = document.confirm.authority;
 
             function check_text(){
+                let btnOpen = document.getElementById("update-radio");
                 if(family_name.value === ""){
                     family_name_error.style.display="flex";
                 }
@@ -218,7 +220,7 @@
                 if(mail.value === ""){
                     mail_error.style.display="flex";
                 }
-                if(password.value === ""){
+                if(password.value === "" && btnOpen.checked){
                     password_error.style.display="flex";
                 }
                 if(postal_code.value === ""){
@@ -230,7 +232,6 @@
                 if(address_2.value === ""){
                     address_2_error.style.display="flex";
                 }
-
                 if(document.confirm.password_radio[0].checked){
                     if(family_name.value === "" || last_name.value === ""|| family_name_kana.value === ""|| last_name_kana.value === ""|| mail.value === ""||  gender.value === ""|| postal_code.value === ""|| prefecture.value === ""|| address_1.value === ""|| address_2.value === ""|| authority.value === ""){
                         alert( "未入力の項目があります");
@@ -238,7 +239,7 @@
                     }else{
                         return true;
                     }
-                }else{
+                }else if(document.confirm.password_radio[1].checked){
                     if(family_name.value === "" || last_name.value === ""|| family_name_kana.value === ""|| last_name_kana.value === ""|| mail.value === ""|| password.value === ""|| gender.value === ""|| postal_code.value === ""|| prefecture.value === ""|| address_1.value === ""|| address_2.value === ""|| authority.value === ""){
                         alert( "未入力の項目があります");
                         return false;

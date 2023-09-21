@@ -2,7 +2,7 @@ body{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 100%;
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -74,6 +74,22 @@ header{
     padding-left: 20px;
 }
 
+#header-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#login-header{
+    margin: 0;
+    margin-right: 75px;
+    color: #000000;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 160px;
+}
+
 #menu{
     display: flex;
     align-items: center;
@@ -111,7 +127,7 @@ main{
     display: flex;
     justify-content: center;
     margin:30px 0;
-    height: auto;
+    flex: 1;
 }
 
 #main-container{
@@ -119,7 +135,7 @@ main{
     flex-direction: column;
     align-items: center;
     width: 80%;
-    height: auto;
+    height: 100%;
     margin: 0;
 }
 
@@ -281,7 +297,13 @@ p#delete_announce{
     margin: 200px 0;
 }
 
-span{
+.error-regist{
+    color: #df3434;
+    font-size: 14px;
+    margin-right: auto;
+}
+
+#mail_error,#password_error{
     color: #df3434;
     font-size: 14px;
     margin-right: auto;
@@ -292,13 +314,14 @@ span{
     text-align: center;
     border-collapse: collapse;
     border-spacing: 0;
+    margin-top: 50px;
 }
 #account_table th{
     padding: 10px;
     background: #e9faf9;
     border: solid 1px #778ca3;
 }
-#account_table td {
+#account_table td{
     padding: 10px;
     border: solid 1px #778ca3;
 }
@@ -309,4 +332,90 @@ span{
 
 .token{
     display: none;
+}
+
+#login-announce{
+    margin:0;
+    margin-top:10px;
+    font-weight: bold;
+    color: #000000;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+#login-error{
+    margin:0;
+    margin-top:10px;
+    color: #df3434;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+#search-form{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#account-search{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    border-top: solid 1px;
+    border-left: solid 1px;
+    border-spacing: 0;
+    margin: 0;
+}
+
+#search-box{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    width: 100%;
+}
+
+.search-item{
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    padding: 5px;
+    margin: 0;
+    border-bottom: solid 1px;
+    border-right: solid 1px;
+}
+
+.search-space{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 5px 11px;
+    margin: 0;
+    border-bottom: solid 1px;
+    border-right: solid 1px;
+}
+
+#search,#login{
+    border:1px solid lightgray;
+    padding:4px 10px;
+    color:#ffffff;
+    background-color:#e95e5e;
+    border-radius:5px;
+    border-bottom:solid 2px #808080;
+}
+
+#search-error{
+    margin:0;
+    margin-top: 20px;
+    color: #df3434;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.heading{
+    background-color: #effff1;
 }
